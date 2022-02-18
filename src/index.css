@@ -1,0 +1,10 @@
+@import "./app.css";
+@import "./Button.css";
+@import "./board.css";
+@import "./reset.css";
+body {
+  background-color: #191f2c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}

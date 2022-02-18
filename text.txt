@@ -20,7 +20,7 @@ npm init react-app .
 - JSX에서는 {} 중괄호를 사용하면 자바스크립트 표현식을 사용할 수 있다.
 - 단, 표현식을 다룰 때 사용하기 때문에 if,for문 등의 문장은 사용할 수 없다.
 - 꼭 필요하다면 조건 연산자 혹은 배열의 반복 메소드를 사용한다.
-
+z
 
 [ 컴포넌트 ]
 - 리액트 컴포넌트는 리액트 엘리먼트를 더 자유롭게 다루기 위한 문법이다.
@@ -28,8 +28,40 @@ npm init react-app .
 - 리액트 컴포넌트의 첫번째 글자는 대문자로 작성한다.
 
 
-[Props]
+[ Props ]
 - JSX 문법에서 컴포넌트를 작성할 때 컴포넌트에도 속성을 지정할 수 있다. 
   리액트에서 이렇게 컴포넌트에 지정한 속성들을 Props라고 한다.
 - 컴포넌트에 속성을 지정해주면 각 속성이 하나의 객체로 모여서 컴포넌트를 정의한 함수의 파라미터로 전달된다.
 - <Button color="blue" value="push"/>  // {color:"blue", value:"push"}
+
+[ Children ]
+- Props에는 children이라는 특별한 prop이 있다.
+- JSX 문법으로 컴포넌트를 작성할 때 컴포넌트를 단일 태그가 아니라 여는 태그와 닫는 태그의 형태로 작성하면, 
+  그 안에 작성된 코드가 바로 이 children 값에 담기게 된다.
+- <Button>push</Button>  // {children:"push"}
+
+
+[ state ]
+- 리액트에서 state값이 변경될 때마다 화면을 새로 랜더링한다.
+- state를 만들고 값을 변경하기 위해서 useState()라는 함수를 사용한다.
+- import {useState} from 'react';
+- const [num, setNum] = useState(1);
+==> 이처럼 보통 Destructuring 문법으로 작성한다.
+==> 첫번째가 state, 두번째가 state를 변경하는 setter 함수이다.
+==> useState(value)의 value는 state의 초기값을 설정하는 것이다.  
+
+[ 참조형 state ]
+- 배열 객체와 같은 참조형들은 state를 활용할 때 주의해야한다.
+
+const [array,setArray] = useState([]);
+setArray(array.push("hello"));
+
+==> setter를 통해서 state를 변경시키고자 했으나 참조형은 주소값이 같아 state가 
+    변경되지 않았다고 인식한다. 그래서 랜더링이 이루어지지 않음
+
+const [array,setArray] = useState([]);
+setArray([...array,"hello"]);
+
+==> 이렇게 Spread 문법을 통해 새로운 참조형의 주소값을 만들어 setter에 넣어야 랜더링이 된다.
+
+

@@ -1,0 +1,27 @@
+.button {
+  padding: 14px 27px;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.button.blue {
+  background-color: rgba(0, 89, 55, 0.2);
+  border: 1px solid #7090ff;
+  color: #7090ff;
+}
+.button.blue:hover {
+  background-color: #7090ff;
+  color: white;
+}
+
+.button.red {
+  background-color: rgba(255, 78, 78, 0.2);
+  border: solid 1px #ff4664;
+  color: #ff4664;
+}
+.button.red:hover {
+  background-color: #ff4664;
+  color: white;
+}
